@@ -22,7 +22,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    }
+      "supportsTablet": true,
+      "bundleIdentifier": "com.qlicue.tafu"
+    },
+    "android": {
+      "package": "com.qlicue.tafu"
+   }
   }
 }
