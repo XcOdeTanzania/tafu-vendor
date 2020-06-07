@@ -4,8 +4,8 @@ let strings = new LocalizedString({
   en: {
     homeTitle: "Home"
   },
-  de: {
-    homeTitle: "Home"
+  sw: {
+    homeTitle: "Nyumbani"
   }
 });
 

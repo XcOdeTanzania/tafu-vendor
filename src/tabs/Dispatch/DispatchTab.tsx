@@ -5,7 +5,7 @@ import { Platform, Text, View } from "react-native";
 import { Button, Icon } from "react-native-elements";
 
 
-class HomeScreen extends Component {
+class DispatchTab extends Component {
 
   render() {
 
@@ -18,4 +18,4 @@ class HomeScreen extends Component {
   }
 }
 
-export default HomeScreen;
+export default DispatchTab;

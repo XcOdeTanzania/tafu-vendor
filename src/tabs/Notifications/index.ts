@@ -1,6 +1,6 @@
-import HomeScreen from "./HomeScreen";
+import NotificationsTab from "./NotificationsTab";
 import strings from "./strings";
 
 export { strings };
 
-export default HomeScreen;
+export default NotificationsTab;
