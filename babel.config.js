@@ -23,6 +23,7 @@ module.exports = function(api) {
             styles:'./src/styles',
             utils:'./src/utils',
             screens: './src/screens',
+            tabs: './src/tabs',
             navigation: './src/navigation',
             components: './src/components',
             state: './src/state',

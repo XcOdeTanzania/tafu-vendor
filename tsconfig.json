@@ -15,6 +15,7 @@
       "styles": ["./styles"],
       "utils": ["./utils"],
       "screens": ["./screens"],
+      "tabs": ["./tabs"],
       "components": ["./components"],
       "navigation": ["./navigation"],
       "state": ["./state"]

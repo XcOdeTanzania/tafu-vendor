@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import HomeScreen, { strings as homeStrings } from "screens/Home";
+import  OrdersTab from "tabs/Orders";
+import  DispatchTab from "tabs/Dispatch";
+import  NotificationsTab from "tabs/Notifications";
+import  AccountTab from "tabs/Account";
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -17,10 +20,10 @@ export default class App extends Component<Props> {
     const Tabs = createBottomTabNavigator();
     return <NavigationContainer>
       <Tabs.Navigator>
-        <Tabs.Screen name='Orders' component={HomeScreen}></Tabs.Screen>
-        <Tabs.Screen name='Dispatch' component={HomeScreen}></Tabs.Screen>
-        <Tabs.Screen name='Notifications' component={HomeScreen}></Tabs.Screen>
-        <Tabs.Screen name='Account' component={HomeScreen}></Tabs.Screen>
+        <Tabs.Screen name='Orders' component={OrdersTab}></Tabs.Screen>
+        <Tabs.Screen name='Dispatch' component={DispatchTab}></Tabs.Screen>
+        <Tabs.Screen name='Notifications' component={NotificationsTab}></Tabs.Screen>
+        <Tabs.Screen name='Account' component={AccountTab}></Tabs.Screen>
       </Tabs.Navigator>
     </NavigationContainer>;
   }

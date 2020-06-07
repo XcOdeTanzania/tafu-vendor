@@ -1,4 +1,4 @@
-import strings from "./strings";
+// import strings from "./strings";
 import styles from "./styles";
 import React, { Component } from "react";
 import { Platform, Text, View } from "react-native";
@@ -11,7 +11,7 @@ class OrdersTab extends Component {
 
     return (
       <View style={styles.container}>
-        <Text>home wana wane</Text>
+        <Text>Orders</Text>
       
       </View>
     );
