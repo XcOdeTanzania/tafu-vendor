@@ -5,17 +5,17 @@ import { Platform, Text, View } from "react-native";
 import { Button, Icon } from "react-native-elements";
 
 
-class HomeScreen extends Component {
+class AccountTab extends Component {
 
   render() {
 
     return (
       <View style={styles.container}>
-        <Text>home wana wane</Text>
+        <Text>Account Tab</Text>
       
       </View>
     );
   }
 }
 
-export default HomeScreen;
+export default AccountTab;

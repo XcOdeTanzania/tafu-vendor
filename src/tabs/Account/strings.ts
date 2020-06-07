@@ -2,10 +2,10 @@ import LocalizedString from "react-native-localization";
 
 let strings = new LocalizedString({
   en: {
-    homeTitle: "Home"
+    homeTitle: "Account"
   },
   de: {
-    homeTitle: "Home"
+    homeTitle: "Account"
   }
 });
 

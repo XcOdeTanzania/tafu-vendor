@@ -1,6 +1,6 @@
-import HomeScreen from "./HomeScreen";
+import AccountTab from "./AccountTab";
 import strings from "./strings";
 
 export { strings };
 
-export default HomeScreen;
+export default AccountTab;
