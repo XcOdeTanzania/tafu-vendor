@@ -11,7 +11,7 @@ class NotificationsTab extends Component {
 
     return (
       <View style={styles.container}>
-        <Text>home wana wane</Text>
+        <Text>Notification</Text>
       
       </View>
     );
