@@ -1,13 +1,21 @@
 import React, { Component } from "react";
-import  OrdersTab from "tabs/Orders";
-import  DispatchTab from "tabs/Dispatch";
-import  NotificationsTab from "tabs/Notifications";
-import  AccountTab from "tabs/Account";
+import OrdersTab from "tabs/Orders";
+import DispatchTab from "tabs/Dispatch";
+import NotificationsTab from "tabs/Notifications";
+import AccountTab from "tabs/Account";
 
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Icon } from "react-native-vector-icons/Icon";
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: 'tomato',
+  },
+};
 
 interface Props { }
 export default class App extends Component<Props> {
@@ -18,8 +26,38 @@ export default class App extends Component<Props> {
   render() {
     const Stack = createStackNavigator();
     const Tabs = createBottomTabNavigator();
-    return <NavigationContainer>
-      <Tabs.Navigator>
+    return <NavigationContainer 
+    theme={MyTheme}>
+      <Tabs.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName: string;
+
+            if (route.name === 'Orders') {
+              iconName = focused
+                ? 'ios-apps'
+                : 'ios-apps';
+            } else if (route.name === 'Dispatch') {
+              iconName = focused ? 'ios-list-box' : 'ios-list';
+            }
+            else if (route.name === 'Notifications') {
+              iconName = focused ? 'ios-bookmarks' : 'ios-bookmarks';
+            }
+            else if (route.name === 'Account') {
+              iconName = focused ? 'ios-person' : 'ios-person';
+            } else {
+              iconName = focused ? 'ios-list-box' : 'ios-list';
+            }
+
+            // You can return any component that you like here!
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: 'tomato',
+          inactiveTintColor: 'gray',
+        }}
+      >
         <Tabs.Screen name='Orders' component={OrdersTab}></Tabs.Screen>
         <Tabs.Screen name='Dispatch' component={DispatchTab}></Tabs.Screen>
         <Tabs.Screen name='Notifications' component={NotificationsTab}></Tabs.Screen>
