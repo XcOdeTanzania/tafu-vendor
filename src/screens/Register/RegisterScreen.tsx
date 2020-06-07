@@ -10,7 +10,7 @@ class RegisterScreen extends Component {
         tabBarLabel: strings.registerTitle,
         tabBarIcon: ({ tintColor }: TabScene) => {
             let iconName = Platform.select({ ios: "ios-person-add", android: "md-person-add" });
-            return <Icon name={iconName} type="ionicon" color={tintColor} />;
+            return <Icon name='rowing' type="ionicon" color={tintColor} />;
         }
     };
 

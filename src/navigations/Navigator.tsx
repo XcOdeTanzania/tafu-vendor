@@ -1,4 +1,3 @@
-import BurgerMenu from "../components/BurgerMenu";
 import DetailScreen from "../screens/Detail";
 import HomeScreen, { strings as homeStrings } from "../screens/Home";
 import LoadingScreen from "../screens/Loading";
@@ -80,7 +79,7 @@ SettingsStack.navigationOptions = {
 
 const MainNavigator = Platform.select({
     ios: createBottomTabNavigator({ HomeStack, SettingsStack }),
-    android: createDrawerNavigator({ HomeStack, SettingsStack }, { contentComponent: BurgerMenu })
+    android: createBottomTabNavigator({ HomeStack, SettingsStack })
 });
 
 const LoginStack = createStackNavigator({ LoginScreen, PasswordResetScreen });
@@ -95,7 +94,7 @@ LoginStack.navigationOptions = ({ navigation }: NavigationScreenProps) => {
         tabBarLabel: loginStrings.loginTitle,
         tabBarIcon: ({ tintColor }: TabScene) => {
             let iconName = Platform.select({ ios: "ios-log-in", android: "md-log-in" });
-            return <Icon name={iconName} type="ionicon" color={tintColor} />;
+            return <Icon name='heartbeat' type="ionicon" color={tintColor} />;
         },
         tabBarVisible
     };

@@ -1,7 +1,13 @@
 
-import OptionsScreen from "./OptionsScreen";
-import strings from "./strings";
+import LocalizedString from "react-native-localization";
 
-export { strings };
+let strings = new LocalizedString({
+  en: {
+    optionsTitle: "Options"
+  },
+  de: {
+    optionsTitle: "Optionen"
+  }
+});
 
-export default OptionsScreen;
+export default strings;
