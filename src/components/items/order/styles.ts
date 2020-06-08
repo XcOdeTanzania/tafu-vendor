@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     },
     title: {
         color: "#f58634",
-        fontFamily: "Roboto",
+        // fontFamily: "Roboto",
         fontStyle: "normal",
         fontWeight: "bold",
         fontSize: 15,
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     },
     price: {
         color: "#f58634",
-        fontFamily: "Roboto",
+        // fontFamily: "Roboto",
         fontStyle: "normal",
         fontWeight: "bold",
         fontSize: 15,

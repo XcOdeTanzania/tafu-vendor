@@ -43,7 +43,7 @@ interface State {
 const state: State = {
   error: '',
   isLoading: false,
-  userToken: null,
+  userToken: "null",
   isSignout: true,
 }
   ;
@@ -110,7 +110,11 @@ export default class App extends Component<Props> {
             inactiveTintColor: 'gray',
           }}
         >
-          <Tabs.Screen name='Orders' component={OrdersTab}></Tabs.Screen>
+          <Tabs.Screen name='Orders' component={OrdersTab}
+           options={{
+            title: 'Available Orders',
+          }}
+          ></Tabs.Screen>
           <Tabs.Screen name='Dispatch' component={DispatchTab}></Tabs.Screen>
           <Tabs.Screen name='Notifications' component={NotificationsTab}></Tabs.Screen>
           <Tabs.Screen name='Account' component={AccountTab}></Tabs.Screen>

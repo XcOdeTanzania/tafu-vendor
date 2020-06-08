@@ -4,11 +4,11 @@ import { View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-interface DispatchItemProps {
+interface NotificationItemProps {
 
 }
 
-export const DispatchItem: React.FC<DispatchItemProps> = ({}) => {
+export const NotificationItem: React.FC<NotificationItemProps> = ({}) => {
     return (
         <View style={styles.row}>
             <View style={styles.image}>

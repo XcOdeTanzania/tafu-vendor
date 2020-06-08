@@ -8,7 +8,17 @@ const styles = StyleSheet.create({
     height: 1,
     flex: 1,
     backgroundColor: "gray"
-  }
+  },
+  header: {
+    color: "#f58634",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: 30,
+    lineHeight: 18,
+    paddingTop:40,
+    paddingLeft: 18,
+    marginBottom: 8,
+  },
 });
 
 export default styles;
