@@ -1,4 +1,4 @@
-import strings from "./strings";
+// import strings from "./strings";
 import styles from "./styles";
 import React, { Component } from "react";
 import { Text, View } from "react-native";
@@ -15,7 +15,7 @@ class PasswordResetScreen extends Component<NavigationScreenProps> {
       <View style={styles.container}>
         <Text style={{ paddingBottom: 20 }}>This is the PasswordResetScreen.</Text>
         <Button
-          title={strings.backToLogin}
+          title='strings.backToLogin'
           onPress={() => this.props.navigation.navigate("LoginScreen")}
         />
       </View>

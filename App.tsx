@@ -17,9 +17,21 @@ const MyTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: 'tomato',
+    primary: '#F58634',
   },
 };
+
+const MyThemeAuth = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#F58634',
+    background:'#F58634',
+    text: '#F58634',
+  },
+};
+
+
 
 interface State {
   error: string;
@@ -55,62 +67,55 @@ export default class App extends Component<Props> {
     }
 
 
-    return <NavigationContainer
-      theme={MyTheme}>
-
-
-      state.userToken == null ?(
-        <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginScreen}
+    return state.userToken == null ? <NavigationContainer theme={MyThemeAuth}>
+      <Stack.Navigator >
+        <Stack.Screen name='Login' component={LoginScreen}
           options={{
             title: 'Sign in',
             animationTypeForReplace: state.isSignout ? 'pop' : 'push',
           }}
-        />
-        <Stack.Screen name="Rest" component={PasswordResetScreen}
-          options={{
-            title: 'Rest Password',
-          }}
-        />
+        ></Stack.Screen>
+        <Stack.Screen name='Rest' component={PasswordResetScreen}></Stack.Screen>
       </Stack.Navigator>
-      ): (<Tabs.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName: string;
+    </NavigationContainer> : <NavigationContainer
+      theme={MyTheme}>
 
-            if (route.name === 'Orders') {
-              iconName = focused
-                ? 'ios-apps'
-                : 'ios-apps';
-            } else if (route.name === 'Dispatch') {
-              iconName = focused ? 'ios-list-box' : 'ios-list';
-            }
-            else if (route.name === 'Notifications') {
-              iconName = focused ? 'ios-bookmarks' : 'ios-bookmarks';
-            }
-            else if (route.name === 'Account') {
-              iconName = focused ? 'ios-person' : 'ios-person';
-            } else {
-              iconName = focused ? 'ios-list-box' : 'ios-list';
-            }
+        <Tabs.Navigator
+          screenOptions={({ route }) => ({
+            tabBarIcon: ({ focused, color, size }) => {
+              let iconName: string;
 
-            // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-        })}
-        tabBarOptions={{
-          activeTintColor: 'tomato',
-          inactiveTintColor: 'gray',
-        }}
-      >
-        <Tabs.Screen name='Orders' component={OrdersTab}></Tabs.Screen>
-        <Tabs.Screen name='Dispatch' component={DispatchTab}></Tabs.Screen>
-        <Tabs.Screen name='Notifications' component={NotificationsTab}></Tabs.Screen>
-        <Tabs.Screen name='Account' component={AccountTab}></Tabs.Screen>
-      </Tabs.Navigator>)
+              if (route.name === 'Orders') {
+                iconName = focused
+                  ? 'ios-apps'
+                  : 'ios-apps';
+              } else if (route.name === 'Dispatch') {
+                iconName = focused ? 'ios-list-box' : 'ios-list';
+              }
+              else if (route.name === 'Notifications') {
+                iconName = focused ? 'ios-bookmarks' : 'ios-bookmarks';
+              }
+              else if (route.name === 'Account') {
+                iconName = focused ? 'ios-person' : 'ios-person';
+              } else {
+                iconName = focused ? 'ios-list-box' : 'ios-list';
+              }
 
-
-    </NavigationContainer>;
+              // You can return any component that you like here!
+              return <Ionicons name={iconName} size={size} color={color} />;
+            },
+          })}
+          tabBarOptions={{
+            activeTintColor: 'tomato',
+            inactiveTintColor: 'gray',
+          }}
+        >
+          <Tabs.Screen name='Orders' component={OrdersTab}></Tabs.Screen>
+          <Tabs.Screen name='Dispatch' component={DispatchTab}></Tabs.Screen>
+          <Tabs.Screen name='Notifications' component={NotificationsTab}></Tabs.Screen>
+          <Tabs.Screen name='Account' component={AccountTab}></Tabs.Screen>
+        </Tabs.Navigator>
+      </NavigationContainer>;
   }
 }
 
