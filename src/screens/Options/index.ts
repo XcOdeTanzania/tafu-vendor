@@ -1,6 +1,6 @@
 import OptionsScreen from "./OptionsScreen";
-import strings from "./strings";
+// import strings from "./strings";
 
-export { strings };
+// export { strings };
 
 export default OptionsScreen;

@@ -9,7 +9,7 @@ class OptionsScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View >
         <Text>This is the OptionsScreen.</Text>
       </View>
     );

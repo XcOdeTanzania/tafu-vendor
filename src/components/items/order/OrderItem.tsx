@@ -1,5 +1,6 @@
 import Rect from 'react';
-import { Text } from "react-native";
+import { Text, View } from "react-native";
+import styles from "./styles";
 interface Props {
     icon: string,
     title: string,
@@ -10,11 +11,11 @@ interface Props {
 
 export const OrderItem: Rect.FC<Props> = ({ icon, title, subtitle, cost }) => {
     return (
-        <div>
+        <View style={styles.container}>
             <Text>{icon}</Text>
             <Text>{title}</Text>
             <Text>{subtitle}</Text>
             <Text>{cost}</Text>
-        </div>
+        </View>
     );
 }
