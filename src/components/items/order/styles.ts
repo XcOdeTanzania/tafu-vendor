@@ -1,14 +1,21 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "space-evenly",
-        alignItems: "center",
-        padding: 10
+    row: {
+    
+        padding: 10,
+        display: "flex",
+        flexDirection: "row",
+        justifyContent:"space-between"
     },
-    icon: {
-        paddingLeft: 10
+    image: {
+    
+    },
+    body: {
+       
+    },
+    action: {
+        
     },
     item: {
         backgroundColor: '#f9c2ff',

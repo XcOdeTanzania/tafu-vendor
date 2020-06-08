@@ -2,8 +2,8 @@
 import styles from "./styles";
 import React, { Component } from "react";
 import { SafeAreaView, View, FlatList, StyleSheet, Text, Alert } from "react-native";
-import { OrderItem } from '../../components/items/order/OrderItem';
-import OptionsScreen from "../../screens/Options";
+import OrderItem  from '../../components/items/order/OrderItem';
+
 
 
 
@@ -18,7 +18,7 @@ class OrdersTab extends Component {
         <FlatList
           data={[{ key: 'a' }, { key: 'b' }, { key: 'c' }, { key: 'd' }, { key: 'e' }, { key: 'f' }]}
           renderItem={({ item }) => (
-            <OptionsScreen></OptionsScreen>
+            <OrderItem></OrderItem>
           )}
         />
       </SafeAreaView>
