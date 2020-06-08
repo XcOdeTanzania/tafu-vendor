@@ -1,6 +1,6 @@
-import ProductDetailScreen from "./ProductDetail";
+import DirectPayScreen from "./ProductDetail";
 // import strings from "./strings";
 
 // export { strings };
 
-export default ProductDetailScreen;
+export default DirectPayScreen;
