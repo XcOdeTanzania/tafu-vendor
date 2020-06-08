@@ -1,8 +1,8 @@
 // import strings from "./strings";
 import styles from "./styles";
 import React, { Component } from "react";
-import { Platform, Text, View } from "react-native";
-import { Button, Icon, SearchBar } from "react-native-elements";
+import { Text, View } from "react-native";
+import {  SearchBar, Divider } from "react-native-elements";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FlatList } from "react-native-gesture-handler";
 import { DispatchItem } from "components/items/dispatch/DispatchItem";
@@ -47,6 +47,7 @@ class DispatchTab extends Component {
           <Text style={styles.header}>
             Awaiting
          </Text>
+         <Divider></Divider>
           <SearchBar
             placeholder="Search"
             lightTheme

@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         marginLeft: 8
     },
     title: {
-        color: "#266efa",
+        color: "#7e7d7b",
         // fontFamily: "Roboto",
         fontStyle: "normal",
         fontWeight: "bold",

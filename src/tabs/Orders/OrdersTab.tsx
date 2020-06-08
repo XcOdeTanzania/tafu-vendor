@@ -3,7 +3,7 @@ import styles from "./styles";
 import React, { Component } from "react";
 import { SafeAreaView, View, FlatList, StyleSheet, Text, Alert } from "react-native";
 import OrderItem from '../../components/items/order/OrderItem';
-import { SearchBar } from "react-native-elements";
+import { SearchBar, Divider } from "react-native-elements";
 
 
 
@@ -49,6 +49,7 @@ class OrdersTab extends Component {
           <Text style={styles.header}>
             Availbe Orders
          </Text>
+          <Divider></Divider>
           <SearchBar
             placeholder="Search"
             lightTheme
@@ -64,7 +65,7 @@ class OrdersTab extends Component {
             renderItem={({ item }) => (
               <OrderItem ></OrderItem>
             )}
-         
+
 
           />
         </View>
