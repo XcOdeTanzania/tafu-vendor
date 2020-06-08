@@ -8,9 +8,15 @@ import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import SplashScreen from "screens/Home";
 import PasswordResetScreen from "screens/PasswordReset";
 import LoginScreen from "screens/Login";
+import OrderDetailScreen from "screens/OrderDetail";
+import ProductDetailScreen from "screens/ProductDetail";
+import DispatchScreen from "screens/Dispatch";
+import DispatchListScreen from "screens/DispatchList";
+import DispatchDetailScreen from "screens/DispatchDetail";
 
 
 const MyTheme = {
@@ -26,7 +32,7 @@ const MyThemeAuth = {
   colors: {
     ...DefaultTheme.colors,
     primary: '#F58634',
-    background:'#F58634',
+    background: '#F58634',
     text: '#F58634',
   },
 };
@@ -57,9 +63,36 @@ export default class App extends Component<Props> {
   };
 
 
+
+
   render() {
     const Stack = createStackNavigator();
     const Tabs = createBottomTabNavigator();
+
+///order screen stack
+    const orderStackScreen = () => {
+      return (
+        <Stack.Navigator>
+          <Stack.Screen name="Orders" component={OrdersTab} />
+          <Stack.Screen name="OrderDetail" component={OrderDetailScreen} />
+        </Stack.Navigator>
+      );
+    }
+
+    ///dispatch screen stack
+    const dispatchStackScreen = () => {
+      return (
+        <Stack.Navigator>
+          <Stack.Screen name="Dispatch" component={DispatchTab} />
+          <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
+          <Stack.Screen name="Dispatch" component={DispatchScreen} />
+          <Stack.Screen name="DispatchList" component={DispatchListScreen} />
+          <Stack.Screen name="DispatchDetail" component={DispatchDetailScreen} />
+        </Stack.Navigator>
+      );
+    }
+
+
 
     if (state.isLoading) {
       // We haven't finished checking for the token yet
@@ -110,12 +143,12 @@ export default class App extends Component<Props> {
             inactiveTintColor: 'gray',
           }}
         >
-          <Tabs.Screen name='Orders' component={OrdersTab}
-           options={{
-            title: 'Available Orders',
-          }}
+          <Tabs.Screen name='Orders' component={orderStackScreen}
+            options={{
+              title: 'Orders',
+            }}
           ></Tabs.Screen>
-          <Tabs.Screen name='Dispatch' component={DispatchTab}></Tabs.Screen>
+          <Tabs.Screen name='Dispatch' component={dispatchStackScreen}></Tabs.Screen>
           <Tabs.Screen name='Notifications' component={NotificationsTab}></Tabs.Screen>
           <Tabs.Screen name='Account' component={AccountTab}></Tabs.Screen>
         </Tabs.Navigator>
