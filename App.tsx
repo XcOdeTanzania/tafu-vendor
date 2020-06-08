@@ -8,6 +8,10 @@ import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import SplashScreen from "screens/Home";
+import PasswordResetScreen from "screens/PasswordReset";
+import LoginScreen from "screens/Login";
+
 
 const MyTheme = {
   ...DefaultTheme,
@@ -17,18 +21,59 @@ const MyTheme = {
   },
 };
 
+interface State {
+  error: string;
+  isLoading: boolean;
+  userToken: string | null | undefined;
+  isSignout: boolean;
+}
+
+const state: State = {
+  error: '',
+  isLoading: false,
+  userToken: null,
+  isSignout: true,
+}
+  ;
+
 interface Props { }
 export default class App extends Component<Props> {
+
+
   componentDidMount = () => {
 
   };
 
+
   render() {
     const Stack = createStackNavigator();
     const Tabs = createBottomTabNavigator();
-    return <NavigationContainer 
-    theme={MyTheme}>
-      <Tabs.Navigator
+
+    if (state.isLoading) {
+      // We haven't finished checking for the token yet
+      return <SplashScreen />;
+    }
+
+
+    return <NavigationContainer
+      theme={MyTheme}>
+
+
+      state.userToken == null ?(
+        <Stack.Navigator>
+        <Stack.Screen name="Login" component={LoginScreen}
+          options={{
+            title: 'Sign in',
+            animationTypeForReplace: state.isSignout ? 'pop' : 'push',
+          }}
+        />
+        <Stack.Screen name="Rest" component={PasswordResetScreen}
+          options={{
+            title: 'Rest Password',
+          }}
+        />
+      </Stack.Navigator>
+      ): (<Tabs.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName: string;
@@ -62,7 +107,9 @@ export default class App extends Component<Props> {
         <Tabs.Screen name='Dispatch' component={DispatchTab}></Tabs.Screen>
         <Tabs.Screen name='Notifications' component={NotificationsTab}></Tabs.Screen>
         <Tabs.Screen name='Account' component={AccountTab}></Tabs.Screen>
-      </Tabs.Navigator>
+      </Tabs.Navigator>)
+
+
     </NavigationContainer>;
   }
 }
