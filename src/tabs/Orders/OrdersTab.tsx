@@ -29,14 +29,10 @@ class OrdersTab extends Component {
 
   renderSeparator = () => {
     return (
-      <View
-        style={{
-          height: 1,
-          width: "100%",
-          backgroundColor: "#CED0CE",
-          margin: "2%",
-        }}
-      />
+      <View style={styles.divider}>
+        <Divider ></Divider>
+        </View>
+
     );
   };
 

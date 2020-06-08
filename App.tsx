@@ -18,6 +18,10 @@ import DispatchScreen from "screens/Dispatch";
 import DispatchListScreen from "screens/DispatchList";
 import DispatchDetailScreen from "screens/DispatchDetail";
 
+import WalletScreen from "screens/Wallet";
+import DirectPayScreen from "screens/DirectPay";
+
+
 
 const MyTheme = {
   ...DefaultTheme,
@@ -69,11 +73,11 @@ export default class App extends Component<Props> {
     const Stack = createStackNavigator();
     const Tabs = createBottomTabNavigator();
 
-///order screen stack
+    ///order screen stack
     const orderStackScreen = () => {
       return (
         <Stack.Navigator>
-          <Stack.Screen name="Orders" component={OrdersTab} />
+          <Stack.Screen name="OrdersTab" component={OrdersTab} />
           <Stack.Screen name="OrderDetail" component={OrderDetailScreen} />
         </Stack.Navigator>
       );
@@ -83,11 +87,22 @@ export default class App extends Component<Props> {
     const dispatchStackScreen = () => {
       return (
         <Stack.Navigator>
-          <Stack.Screen name="Dispatch" component={DispatchTab} />
+          <Stack.Screen name="DispatchTab" component={DispatchTab} />
           <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
           <Stack.Screen name="Dispatch" component={DispatchScreen} />
           <Stack.Screen name="DispatchList" component={DispatchListScreen} />
           <Stack.Screen name="DispatchDetail" component={DispatchDetailScreen} />
+        </Stack.Navigator>
+      );
+    }
+
+    ///account screen stack
+    const accountStackScreen = () => {
+      return (
+        <Stack.Navigator>
+          <Stack.Screen name="Account" component={AccountTab} />
+          <Stack.Screen name="Wallet" component={WalletScreen} />
+          <Stack.Screen name="DirectPay" component={DirectPayScreen} />
         </Stack.Navigator>
       );
     }
@@ -150,7 +165,7 @@ export default class App extends Component<Props> {
           ></Tabs.Screen>
           <Tabs.Screen name='Dispatch' component={dispatchStackScreen}></Tabs.Screen>
           <Tabs.Screen name='Notifications' component={NotificationsTab}></Tabs.Screen>
-          <Tabs.Screen name='Account' component={AccountTab}></Tabs.Screen>
+          <Tabs.Screen name='Account' component={accountStackScreen}></Tabs.Screen>
         </Tabs.Navigator>
       </NavigationContainer>;
   }

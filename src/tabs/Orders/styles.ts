@@ -15,10 +15,17 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 30,
     lineHeight: 18,
-    paddingTop:40,
+    paddingTop: 40,
     paddingLeft: 18,
     marginBottom: 8,
   },
+
+  divider: {
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingBottom: 10
+
+  }
 });
 
 export default styles;
