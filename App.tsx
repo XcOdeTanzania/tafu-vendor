@@ -14,12 +14,13 @@ import PasswordResetScreen from "screens/PasswordReset";
 import LoginScreen from "screens/Login";
 import OrderDetailScreen from "screens/OrderDetail";
 import ProductDetailScreen from "screens/ProductDetail";
-import DispatchScreen from "screens/DispatchAwaiting";
 import DispatchListScreen from "screens/DispatchList";
 import DispatchDetailScreen from "screens/DispatchDetail";
+import DispatchAwaiting from "screens/DispatchAwaiting";
 
 import WalletScreen from "screens/Wallet";
 import DirectPayScreen from "screens/DirectPay";
+import DispatchAwaitingScreen from "screens/DispatchAwaiting";
 
 
 
@@ -93,7 +94,7 @@ export default class App extends Component<Props> {
         <Stack.Navigator>
           <Stack.Screen name="DispatchTab" component={DispatchTab} />
           <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
-          <Stack.Screen name="Dispatch" component={DispatchScreen} />
+          <Stack.Screen name="DispatchAwaiting" component={DispatchAwaitingScreen} />
           <Stack.Screen name="DispatchList" component={DispatchListScreen} />
           <Stack.Screen name="DispatchDetail" component={DispatchDetailScreen} />
         </Stack.Navigator>

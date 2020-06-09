@@ -2,20 +2,37 @@
 import styles from "./styles";
 import React, { Component } from "react";
 import { Text, View } from "react-native";
-import { SearchBar, Divider, Button } from "react-native-elements";
+import { SearchBar, Divider, Button, ButtonGroup } from "react-native-elements";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
-import { DispatchItem } from "components/items/dispatch/DispatchItem";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import DispatchItem from "components/items/dispatch/DispatchItem";
+
 
 interface Props {
   navigation: any,
 }
-class DispatchTab extends Component<Props> {
+
+type DispatchTabState =
+  {
+    selectedIndex: number,
+    data: any
+  }
+class DispatchTab extends Component<Props, DispatchTabState> {
   constructor(props: any) {
     super(props);
+    this.state = {
+      selectedIndex: 0,
+      data: []
+    }
+    this.updateIndex = this.updateIndex.bind(this);
 
   }
+
+  updateIndex(selectedIndex: number) {
+    this.setState({ selectedIndex })
+  }
+
   listData = [{ key: 'a' }, { key: 'b' }, { key: 'c' }, { key: 'd' }, { key: 'e' }, { key: 'f' }, { key: 'g' }, { key: 'h' }, { key: 'i' }];
 
   searchFilterFunction = (text: string) => {
@@ -31,26 +48,14 @@ class DispatchTab extends Component<Props> {
     this.setState({ data: newData });
   };
 
-  renderSeparator = () => {
-    return (
-      <View
-        style={{
-          height: 1,
-          width: "100%",
-          backgroundColor: "#CED0CE",
-          margin: "2%",
-        }}
-      />
-    );
-  };
-
-
   render() {
+    const buttons = ['Successful', 'Returned']
+    const { selectedIndex } = this.state
     const { navigation } = this.props;
     return (
       <SafeAreaView style={styles.container}>
         <View >
-          <View style={styles.row}>
+          <View style={styles.rowHeader}>
             <Text style={styles.header}>
               Dispatch
             </Text>
@@ -58,13 +63,14 @@ class DispatchTab extends Component<Props> {
               buttonStyle={styles.button}
               icon={
                 <Icon
-                  name="arrow-right"
-                  size={15}
+                  name="arrow-circle-o-up"
+                  size={30}
                   color="white"
                 />
               }
               onPress={() => {
                 console.log('hello');
+                navigation.navigate('DispatchAwaiting', { item: 'product' })
               }}
 
               title="Awaiting"
@@ -73,6 +79,14 @@ class DispatchTab extends Component<Props> {
 
           </View>
           <Divider></Divider>
+          <ButtonGroup
+            onPress={this.updateIndex}
+            selectedIndex={selectedIndex}
+            buttons={buttons}
+            selectedButtonStyle={styles.buttonGroup}
+            containerStyle={{ height: 50, borderRadius: 15, }}
+          />
+         
           <SearchBar
             placeholder="Search"
             lightTheme
@@ -83,11 +97,12 @@ class DispatchTab extends Component<Props> {
             autoCorrect={false}
           />
           <FlatList
-            ItemSeparatorComponent={this.renderSeparator}
+
             data={this.listData}
             renderItem={({ item }) => (
               <TouchableOpacity
-                onPress={() => navigation.navigate('ProductDetail', { item: 'character' })}>
+                onPress={() => navigation.navigate('ProductDetail', { item: 'character' })
+                }>
                 <DispatchItem ></DispatchItem>
               </TouchableOpacity>
 

@@ -5,7 +5,9 @@ import { Text, View } from "react-native";
 import { SearchBar, Divider } from "react-native-elements";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
-import { DispatchItem } from "components/items/dispatch/DispatchItem";
+import DispatchAwaitItem from "components/items/dispatchAwait/DispatchAwaitItem";
+
+
 
 interface Props {
   navigation: any,
@@ -68,7 +70,7 @@ class DispatchAwaitingScreen extends Component<Props> {
             renderItem={({ item }) => (
               <TouchableOpacity
                 onPress={() => navigation.navigate('ProductDetail', { item: 'character' })}>
-                <DispatchItem ></DispatchItem>
+                <DispatchAwaitItem ></DispatchAwaitItem>
               </TouchableOpacity>
 
             )}
