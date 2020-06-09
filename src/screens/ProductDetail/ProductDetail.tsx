@@ -8,9 +8,6 @@ interface Props {
   navigation: any,
 }
 
-interface State {
-  images: [],
-}
 class ProductDetailScreen extends Component<Props> {
   constructor(props: any) {
     super(props);
@@ -39,7 +36,11 @@ class ProductDetailScreen extends Component<Props> {
             </View>
 
             <View style={styles.row}>
-              <SliderBox images={this.state.images}
+              <SliderBox images={[
+                "https://source.unsplash.com/1024x768/?tree",
+                "https://source.unsplash.com/1024x768/?girl",
+
+              ]}
                 dotColor="#f58634"
                 inactiveDotColor="#90A4AE"
 

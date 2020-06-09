@@ -2,16 +2,15 @@
 import styles from "./styles";
 import React, { Component } from "react";
 import { Text, View } from "react-native";
-import { SearchBar, Divider, Button } from "react-native-elements";
+import { SearchBar, Divider } from "react-native-elements";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import { DispatchItem } from "components/items/dispatch/DispatchItem";
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 interface Props {
   navigation: any,
 }
-class DispatchTab extends Component<Props> {
+class DispatchAwaitingScreen extends Component<Props> {
   constructor(props: any) {
     super(props);
 
@@ -49,29 +48,10 @@ class DispatchTab extends Component<Props> {
     const { navigation } = this.props;
     return (
       <SafeAreaView style={styles.container}>
-        <View >
-          <View style={styles.row}>
-            <Text style={styles.header}>
-              Dispatch
-            </Text>
-            <Button
-              buttonStyle={styles.button}
-              icon={
-                <Icon
-                  name="arrow-right"
-                  size={15}
-                  color="white"
-                />
-              }
-              onPress={() => {
-                console.log('hello');
-              }}
-
-              title="Awaiting"
-              titleStyle={styles.fonts}
-            />
-
-          </View>
+        <View>
+          <Text style={styles.header}>
+            Awaiting
+         </Text>
           <Divider></Divider>
           <SearchBar
             placeholder="Search"
@@ -101,4 +81,4 @@ class DispatchTab extends Component<Props> {
   }
 }
 
-export default DispatchTab;
+export default DispatchAwaitingScreen;

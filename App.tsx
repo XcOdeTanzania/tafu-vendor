@@ -14,7 +14,7 @@ import PasswordResetScreen from "screens/PasswordReset";
 import LoginScreen from "screens/Login";
 import OrderDetailScreen from "screens/OrderDetail";
 import ProductDetailScreen from "screens/ProductDetail";
-import DispatchScreen from "screens/Dispatch";
+import DispatchScreen from "screens/DispatchAwaiting";
 import DispatchListScreen from "screens/DispatchList";
 import DispatchDetailScreen from "screens/DispatchDetail";
 
