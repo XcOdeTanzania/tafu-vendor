@@ -3,7 +3,6 @@ import styles from "./styles";
 import React, { Component } from "react";
 import { Text, View } from "react-native";
 import { Button, Card, Divider } from "react-native-elements";
-import ProfileItem from "components/items/profile/Profiletem";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 

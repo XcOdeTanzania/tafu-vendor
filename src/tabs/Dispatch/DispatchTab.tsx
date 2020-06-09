@@ -2,14 +2,19 @@
 import styles from "./styles";
 import React, { Component } from "react";
 import { Text, View } from "react-native";
-import {  SearchBar, Divider } from "react-native-elements";
+import { SearchBar, Divider } from "react-native-elements";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { FlatList } from "react-native-gesture-handler";
+import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import { DispatchItem } from "components/items/dispatch/DispatchItem";
 
+interface Props {
+  navigation: any,
+}
+class DispatchTab extends Component<Props> {
+  constructor(props: any) {
+    super(props);
 
-class DispatchTab extends Component {
-
+  }
   listData = [{ key: 'a' }, { key: 'b' }, { key: 'c' }, { key: 'd' }, { key: 'e' }, { key: 'f' }, { key: 'g' }, { key: 'h' }, { key: 'i' }];
 
   searchFilterFunction = (text: string) => {
@@ -40,14 +45,14 @@ class DispatchTab extends Component {
 
 
   render() {
-
+    const { navigation } = this.props;
     return (
       <SafeAreaView style={styles.container}>
         <View>
           <Text style={styles.header}>
             Awaiting
          </Text>
-         <Divider></Divider>
+          <Divider></Divider>
           <SearchBar
             placeholder="Search"
             lightTheme
@@ -61,9 +66,13 @@ class DispatchTab extends Component {
             ItemSeparatorComponent={this.renderSeparator}
             data={this.listData}
             renderItem={({ item }) => (
-              <DispatchItem ></DispatchItem>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('ProductDetail', { item: 'character' })}>
+                <DispatchItem ></DispatchItem>
+              </TouchableOpacity>
+
             )}
-         
+
 
           />
         </View>
