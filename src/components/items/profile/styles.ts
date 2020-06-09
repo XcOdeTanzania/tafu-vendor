@@ -7,13 +7,14 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
         paddingBottom: 10,
-
+        height: "30%",
         justifyContent: "space-between"
 
     },
 
     body: {
-
+        flexDirection: "column",
+        justifyContent: "space-between",
         marginLeft: 8,
 
     },
