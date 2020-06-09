@@ -1,16 +1,22 @@
 // import strings from "./strings";
 import styles from "./styles";
 import React, { Component } from "react";
-import { SafeAreaView, View, FlatList, StyleSheet, Text, Alert } from "react-native";
+import { SafeAreaView, View, FlatList, Text, Alert } from "react-native";
 import OrderItem from '../../components/items/order/OrderItem';
 import { SearchBar, Divider } from "react-native-elements";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 
+interface Props {
+  navigation: any,
+}
 
+class OrdersTab extends Component<Props>{
 
+  constructor(props: any) {
+    super(props);
 
-
-class OrdersTab extends Component {
+  }
 
   listData = [{ key: 'a' }, { key: 'b' }, { key: 'c' }, { key: 'd' }, { key: 'e' }, { key: 'f' }, { key: 'g' }, { key: 'h' }, { key: 'i' }];
 
@@ -27,24 +33,30 @@ class OrdersTab extends Component {
     this.setState({ data: newData });
   };
 
+  handler = () => {
+    // write your logic 
+  }
   renderSeparator = () => {
     return (
-      <View style={styles.divider}>
+      <View style={styles.divider} >
         <Divider ></Divider>
-        </View>
+      </View>
+
 
     );
   };
 
 
   render() {
-
+    const { navigation } = this.props;
     return (
       <SafeAreaView style={styles.container}>
         <View>
           <Text style={styles.header}>
-            Availbe Orders
-         </Text>
+            Availble Orders
+          </Text>
+
+
           <Divider></Divider>
           <SearchBar
             placeholder="Search"
@@ -59,7 +71,12 @@ class OrdersTab extends Component {
             ItemSeparatorComponent={this.renderSeparator}
             data={this.listData}
             renderItem={({ item }) => (
-              <OrderItem ></OrderItem>
+
+              <TouchableOpacity
+                onPress={() => navigation.navigate('OrderDetail', { item: 'character' })}>
+                <OrderItem ></OrderItem>
+              </TouchableOpacity>
+
             )}
 
 

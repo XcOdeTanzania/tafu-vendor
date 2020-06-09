@@ -23,6 +23,8 @@ import DirectPayScreen from "screens/DirectPay";
 
 
 
+
+
 const MyTheme = {
   ...DefaultTheme,
   colors: {
@@ -68,13 +70,15 @@ export default class App extends Component<Props> {
 
 
 
-
+  
   render() {
     const Stack = createStackNavigator();
     const Tabs = createBottomTabNavigator();
-
+    
+   
     ///order screen stack
     const orderStackScreen = () => {
+      
       return (
         <Stack.Navigator>
           <Stack.Screen name="OrdersTab" component={OrdersTab} />
