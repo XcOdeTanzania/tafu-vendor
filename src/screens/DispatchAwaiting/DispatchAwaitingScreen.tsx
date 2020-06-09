@@ -2,25 +2,49 @@
 import styles from "./styles";
 import React, { Component } from "react";
 import { Text, View } from "react-native";
-import { SearchBar, Divider } from "react-native-elements";
+import { SearchBar, Divider, ButtonGroup } from "react-native-elements";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import DispatchAwaitItem from "components/items/dispatchAwait/DispatchAwaitItem";
+import Dialog, { DialogContent, DialogFooter, DialogButton } from 'react-native-popup-dialog';
+import QRCode from 'react-native-qrcode-svg';
+
 
 
 
 interface Props {
   navigation: any,
+
 }
-class DispatchAwaitingScreen extends Component<Props> {
+type DispatchAwaitingState =
+  {
+    selectedIndex: number,
+    data: any,
+    visibleQRCode: boolean,
+    visibleConfirmationDialog: boolean,
+  }
+class DispatchAwaitingScreen extends Component<Props, DispatchAwaitingState> {
   constructor(props: any) {
     super(props);
+    this.state = {
+      selectedIndex: 0,
+      data: [],
+      visibleQRCode: false,
+      visibleConfirmationDialog: false
+    }
+    this.updateIndex = this.updateIndex.bind(this);
+
 
   }
-  listData = [{ key: 'a' }, { key: 'b' }, { key: 'c' }, { key: 'd' }, { key: 'e' }, { key: 'f' }, { key: 'g' }, { key: 'h' }, { key: 'i' }];
+  updateIndex(selectedIndex: number) {
+    this.setState({ selectedIndex })
+  }
+
+  listSuccessfulData = [{ key: 'a' }, { key: 'b' }, { key: 'c' }, { key: 'd' }, { key: 'e' }, { key: 'f' }, { key: 'g' }, { key: 'h' }, { key: 'i' }];
+  listReturnedData = [{ key: 'a' }, { key: 'b' }, { key: 'c' },];
 
   searchFilterFunction = (text: string) => {
-    const newData = this.listData.filter(item => {
+    const newData = this.listSuccessfulData.filter(item => {
       const itemData = `${item.key.toUpperCase()}   
       ${item.key.toUpperCase()} ${item.key.toUpperCase()}`;
 
@@ -47,6 +71,8 @@ class DispatchAwaitingScreen extends Component<Props> {
 
 
   render() {
+    const buttons = ['Confirmation', 'Dispatch']
+    const { selectedIndex } = this.state
     const { navigation } = this.props;
     return (
       <SafeAreaView style={styles.container}>
@@ -55,6 +81,14 @@ class DispatchAwaitingScreen extends Component<Props> {
             Awaiting
          </Text>
           <Divider></Divider>
+
+          <ButtonGroup
+            onPress={this.updateIndex}
+            selectedIndex={selectedIndex}
+            buttons={buttons}
+            selectedButtonStyle={styles.buttonGroup}
+            containerStyle={{ height: 50, borderRadius: 15, }}
+          />
           <SearchBar
             placeholder="Search"
             lightTheme
@@ -66,10 +100,13 @@ class DispatchAwaitingScreen extends Component<Props> {
           />
           <FlatList
             ItemSeparatorComponent={this.renderSeparator}
-            data={this.listData}
+            data={selectedIndex == 0 ? this.listSuccessfulData : this.listReturnedData}
             renderItem={({ item }) => (
               <TouchableOpacity
-                onPress={() => navigation.navigate('ProductDetail', { item: 'character' })}>
+                onPress={() =>
+                  selectedIndex == 0 ? navigation.navigate('ProductDetail', { item: 'character' }) : this.setState({ visibleQRCode: true })
+
+                }>
                 <DispatchAwaitItem ></DispatchAwaitItem>
               </TouchableOpacity>
 
@@ -77,6 +114,62 @@ class DispatchAwaitingScreen extends Component<Props> {
 
 
           />
+
+          <Dialog visible={this.state.visibleQRCode}
+            onTouchOutside={() => {
+              this.setState({ visibleQRCode: false });
+              this.setState({ visibleConfirmationDialog: true });
+
+            }}
+            width={0.5}
+          >
+            <DialogContent style={styles.dialogContent}>
+              <View>
+                <Text style={styles.contentHeader}>7-6-3-0</Text>
+              </View>
+              <View style={styles.QRCodeContainer}>
+                <QRCode
+                  value="http://awesome.link.qr"
+                />
+              </View>
+              <View style={styles.dialogContainer}>
+                <Text>30 Sec: 10 Sec</Text>
+              </View>
+            </DialogContent>
+
+          </Dialog>
+
+
+          <Dialog visible={this.state.visibleConfirmationDialog}
+            onTouchOutside={() => {
+
+
+
+            }}
+            width={0.8}
+            
+          >
+            <DialogContent style={styles.dialogConfirmContent}>
+              <View>
+                <Text style={styles.contentConfirmHeader}>Dispatch Successfully</Text>
+              </View>
+
+              <View >
+                <Text style={styles.dialogConfirmContainer}>Salum Juma confirm to receive the package in good condition</Text>
+              </View>
+            </DialogContent>
+
+            <DialogFooter>
+              <DialogButton text={'Okay'} onPress={() => {
+                this.setState({ visibleConfirmationDialog: false });
+                navigation.navigate('DispatchReceipt', { item: 'character' })
+              }} ></DialogButton>
+            </DialogFooter>
+
+          </Dialog>
+
+
+
         </View>
       </SafeAreaView>
     );

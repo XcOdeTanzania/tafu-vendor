@@ -21,6 +21,9 @@ import DispatchAwaiting from "screens/DispatchAwaiting";
 import WalletScreen from "screens/Wallet";
 import DirectPayScreen from "screens/DirectPay";
 import DispatchAwaitingScreen from "screens/DispatchAwaiting";
+import DispatchReceiptScreen from "screens/DispatchReceipt";
+import { Button } from "react-native-elements";
+import Icon from "react-native-vector-icons/Entypo";
 
 
 
@@ -71,15 +74,15 @@ export default class App extends Component<Props> {
 
 
 
-  
+
   render() {
     const Stack = createStackNavigator();
     const Tabs = createBottomTabNavigator();
-    
-   
+
+
     ///order screen stack
     const orderStackScreen = () => {
-      
+
       return (
         <Stack.Navigator>
           <Stack.Screen name="OrdersTab" component={OrdersTab} />
@@ -97,6 +100,25 @@ export default class App extends Component<Props> {
           <Stack.Screen name="DispatchAwaiting" component={DispatchAwaitingScreen} />
           <Stack.Screen name="DispatchList" component={DispatchListScreen} />
           <Stack.Screen name="DispatchDetail" component={DispatchDetailScreen} />
+          <Stack.Screen name="DispatchReceipt" component={DispatchReceiptScreen}
+            options={{
+
+              headerRight: () => (
+                <Button
+                  type="clear"
+                  onPress={() => alert('This is a button!')}
+                  icon={
+                    <Icon
+                      name="share-alternative"
+                      size={15}
+                      color="#f58634"
+                    />
+                  }
+
+                />
+              ),
+            }}
+          />
         </Stack.Navigator>
       );
     }

@@ -33,10 +33,11 @@ class DispatchTab extends Component<Props, DispatchTabState> {
     this.setState({ selectedIndex })
   }
 
-  listData = [{ key: 'a' }, { key: 'b' }, { key: 'c' }, { key: 'd' }, { key: 'e' }, { key: 'f' }, { key: 'g' }, { key: 'h' }, { key: 'i' }];
+  listSuccessfulData = [{ key: 'a' }, { key: 'b' }, { key: 'c' }, { key: 'd' }, { key: 'e' }, { key: 'f' }, { key: 'g' }, { key: 'h' }, { key: 'i' }];
+  listReturnedData = [{ key: 'a' }, { key: 'b' }, { key: 'c' },];
 
   searchFilterFunction = (text: string) => {
-    const newData = this.listData.filter(item => {
+    const newData = this.listSuccessfulData.filter(item => {
       const itemData = `${item.key.toUpperCase()}   
       ${item.key.toUpperCase()} ${item.key.toUpperCase()}`;
 
@@ -86,7 +87,7 @@ class DispatchTab extends Component<Props, DispatchTabState> {
             selectedButtonStyle={styles.buttonGroup}
             containerStyle={{ height: 50, borderRadius: 15, }}
           />
-         
+
           <SearchBar
             placeholder="Search"
             lightTheme
@@ -98,7 +99,7 @@ class DispatchTab extends Component<Props, DispatchTabState> {
           />
           <FlatList
 
-            data={this.listData}
+            data={selectedIndex == 0 ? this.listSuccessfulData : this.listReturnedData}
             renderItem={({ item }) => (
               <TouchableOpacity
                 onPress={() => navigation.navigate('ProductDetail', { item: 'character' })
