@@ -6,8 +6,18 @@ import { Divider } from "react-native-elements";
 import ProfileItem from "components/items/profile/Profiletem";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-class AccountTab extends Component {
 
+interface Props {
+
+}
+type AccountTabState = {
+
+}
+class AccountTab extends Component<Props, AccountTabState> {
+  constructor(props: Props) {
+    super(props);
+
+  }
   render() {
 
     return (

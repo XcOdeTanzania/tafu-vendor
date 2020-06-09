@@ -4,7 +4,22 @@ import { Text, View, ActivityIndicator } from "react-native";
 import { Button, Avatar } from 'react-native-elements';
 import Dialog, { DialogContent } from 'react-native-popup-dialog';
 
-export class ProfileItem extends Component {
+interface Props {
+
+}
+
+type ProfileItemState = {
+    visible: boolean,
+
+}
+export class ProfileItem extends Component<Props, ProfileItemState> {
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            visible: false,
+
+        }
+    }
     render() {
         return (
             <View style={styles.row}>
@@ -12,7 +27,8 @@ export class ProfileItem extends Component {
                     <Text style={styles.title}>Laptop City</Text>
                     <Text style={styles.subtitle}>Kinondoni Morocco</Text>
                     <Button buttonStyle={styles.button} onPress={() => {
-                        console.log('hello');
+                        console.log(this.state.visible);
+                        this.setState({ visible: true });
                     }} title='Edit' titleStyle={styles.fonts}></Button>
                 </View>
 
@@ -28,7 +44,16 @@ export class ProfileItem extends Component {
                     />
                 </View>
 
-                <Dialog></Dialog>
+                <Dialog visible={this.state.visible}
+                    onTouchOutside={() => {
+                        this.setState({ visible: false })
+                    }}
+                >
+                    <DialogContent>
+                        <Text>Hello</Text>
+                    </DialogContent>
+
+                </Dialog>
 
             </View>
         );
