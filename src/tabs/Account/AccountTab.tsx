@@ -1,7 +1,7 @@
 // import strings from "./strings";
 import styles from "./styles";
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { Text, View, Switch } from "react-native";
 import { Divider } from "react-native-elements";
 import ProfileItem from "components/items/profile/Profiletem";
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -34,17 +34,17 @@ class AccountTab extends Component {
 
         <View style={styles.row}>
           <Text style={styles.itemText} >Notifications</Text>
-          <Ionicons name='ios-add' size={40} color='#F58634'></Ionicons>
+          <Switch></Switch>
         </View>
         <View style={styles.divider}>
-        <Divider ></Divider>
+          <Divider ></Divider>
         </View>
 
         <View style={styles.row}>
           <Text style={styles.itemText} >Logout</Text>
-          <Ionicons name='ios-add' size={40} color='#F58634'></Ionicons>
+          <Switch></Switch>
         </View>
-  
+
       </View>
     );
   }

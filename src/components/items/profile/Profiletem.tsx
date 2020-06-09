@@ -2,6 +2,7 @@ import styles from "./styles";
 import React, { Component } from "react";
 import { Text, View, ActivityIndicator } from "react-native";
 import { Button, Avatar } from 'react-native-elements';
+import Dialog, { DialogContent } from 'react-native-popup-dialog';
 
 export class ProfileItem extends Component {
     render() {
@@ -26,6 +27,8 @@ export class ProfileItem extends Component {
                         }}
                     />
                 </View>
+
+                <Dialog></Dialog>
 
             </View>
         );
