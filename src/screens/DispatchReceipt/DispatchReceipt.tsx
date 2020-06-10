@@ -7,7 +7,7 @@ import imageICon from '../../assets/icon/tafu.png';
 import { Image } from 'react-native';
 
 
-const iconImageUri = Image.resolveAssetSource(imageICon).uri
+// const iconImageUri = Image.resolveAssetSource(imageICon).uri
 interface Props {
   navigation: any,
 }
@@ -29,7 +29,7 @@ class DispatchReceiptScreen extends Component<Props> {
           <Card>
             <View style={styles.cardRow}>
               <View style={styles.cardLeftColumn}>
-                <Image source={{ uri: iconImageUri }} style={{ width: 100, height: 100 }} />
+                {/* <Image source={{ uri: iconImageUri }} style={{ width: 100, height: 100 }} /> */}
                 <Text style={styles.cardSmallHeaderText} >Order Number</Text>
                 <Text style={styles.cardLargeHeaderText} >#2365</Text>
                 <View style={{ padding: 10 }}></View>
