@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { Text, View, Switch } from "react-native";
 import { Divider, Avatar, Button } from "react-native-elements";
 import ProfileItem from "components/items/profile/Profiletem";
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 
@@ -54,19 +54,28 @@ class AccountTab extends Component<Props, AccountTabState> {
 
         <Divider></Divider>
         <View style={{ padding: 20 }}></View>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Wallet', { item: 'character' })
+          }>
+          <View style={styles.row}>
+            <Text style={styles.itemText} >Wallet</Text>
+            <Icon name='wallet' size={25} color='#C4C4C4'></Icon>
+          </View>
+        </TouchableOpacity>
 
-        <View style={styles.row}>
-          <Text style={styles.itemText} >Wallet</Text>
-          <Ionicons name='ios-add' size={40} color='#C4C4C4'></Ionicons>
-        </View>
+
         <View style={styles.divider}>
           <Divider ></Divider>
         </View>
+        <TouchableOpacity
+          onPress={() => { }
+          }>
+          <View style={styles.row}>
+            <Text style={styles.itemText} >Change Password</Text>
+            <Icon name='lock' size={25} color='#C4C4C4'></Icon>
+          </View>
+        </TouchableOpacity>
 
-        <View style={styles.row}>
-          <Text style={styles.itemText} >Change Password</Text>
-          <Ionicons name='ios-add' size={40} color='#C4C4C4'></Ionicons>
-        </View>
         <View style={styles.divider}>
           <Divider ></Divider>
         </View>

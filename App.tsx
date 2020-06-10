@@ -16,7 +16,7 @@ import OrderDetailScreen from "screens/OrderDetail";
 import ProductDetailScreen from "screens/ProductDetail";
 import DispatchListScreen from "screens/DispatchList";
 import DispatchDetailScreen from "screens/DispatchDetail";
-import DispatchAwaiting from "screens/DispatchAwaiting";
+
 
 import WalletScreen from "screens/Wallet";
 import AccountScreen from "screens/Accout";
@@ -24,6 +24,8 @@ import AccountScreen from "screens/Accout";
 import DirectPayScreen from "screens/DirectPay";
 import DispatchAwaitingScreen from "screens/DispatchAwaiting";
 import DispatchReceiptScreen from "screens/DispatchReceipt";
+
+
 import { Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/Entypo";
 

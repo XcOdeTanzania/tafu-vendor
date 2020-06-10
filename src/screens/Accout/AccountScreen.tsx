@@ -150,13 +150,13 @@ class AccountScreen extends Component<Props, AccountScreenState> {
             this.setState({ visiblePopup: false });
 
           }}
-          width={0.5}
-          height={0.5}
+          width={0.8}
+         
         >
           <DialogContent >
-            <View style={styles.colPopup}>
-              <View style={styles.containerPopup}>
-                <Text style={styles.headerPopup}>Add New Branch</Text>
+            <View >
+              <View >
+                <Text >Add New Branch</Text>
                 <View>
                   <TextInput
                     placeholder='Location'
@@ -176,7 +176,7 @@ class AccountScreen extends Component<Props, AccountScreenState> {
                     console.log('submit')
                   }}
                     title="Add"
-                    style={styles.buttonPopup}
+                  
                   ></Button>
                 </View>
               </View>
