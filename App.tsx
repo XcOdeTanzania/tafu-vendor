@@ -19,7 +19,7 @@ import DispatchDetailScreen from "screens/DispatchDetail";
 
 
 import WalletScreen from "screens/Wallet";
-import AccountScreen from "screens/Accout";
+import AccountScreen from "screens/Account";
 
 import DirectPayScreen from "screens/DirectPay";
 import DispatchAwaitingScreen from "screens/DispatchAwaiting";

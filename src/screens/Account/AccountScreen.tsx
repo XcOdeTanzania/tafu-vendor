@@ -151,36 +151,6 @@ class AccountScreen extends Component<Props, AccountScreenState> {
 
           }}
           width={0.8}
-<<<<<<< HEAD
-         
-        >
-          <DialogContent >
-            <View >
-              <View >
-                <Text >Add New Branch</Text>
-                <View>
-                  <TextInput
-                    placeholder='Location'
-                    autoFocus={true}
-                    style={styles.textInputPopup}
-                  ></TextInput>
-                </View>
-                <View>
-                  <TextInput
-                    placeholder='Phone Number'
-                    autoFocus={true}
-                    style={styles.textInputPopup}
-                  ></TextInput>
-                </View>
-                <View>
-                  <Button onPress={() => {
-                    console.log('submit')
-                  }}
-                    title="Add"
-                  
-                  ></Button>
-                </View>
-=======
           // height={0.5}
           dialogStyle={{ backgroundColor: "#f58634" }}
         >
@@ -215,7 +185,6 @@ class AccountScreen extends Component<Props, AccountScreenState> {
                   buttonStyle={[styles.dialogFooterButton, styles.formGroup]}
 
                 ></Button>
->>>>>>> 482166e5339063bc1ee59ea8959b5a9cbf749fd8
               </View>
             </View>
           </DialogContent>
