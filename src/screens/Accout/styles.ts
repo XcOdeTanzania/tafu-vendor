@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { colors } from "react-native-elements";
 
 const styles = StyleSheet.create({
   container: {
@@ -101,47 +102,44 @@ const styles = StyleSheet.create({
   },
   rowBranch: {
     flexDirection: "row",
-  
-    paddingBottom:5,
+
+    paddingBottom: 5,
     justifyContent: 'flex-start',
-   
+
 
   },
 
 
-  colPopup: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column"
-  },
-  containerPopup: {
-    width: "75%",
-    justifyContent: "center",
-    textAlign: "center",
-    padding: 30,
-    borderRadius: 10,
-    borderWidth: 1
-  },
   textInputPopup: {
     borderWidth: 1,
-    borderColor: "gray",
     borderRadius: 5,
     marginBottom: 8,
     padding: 10,
-    width: "100%"
+    width: "100%",
+    color: "white",
+    borderColor: "#fff",
   },
-  headerPopup: {
-    // fontFamily: "Roboto",
-    fontStyle: "normal",
-    fontWeight: "bold",
+  dialogHeader: {
+    paddingTop: 20,
+  },
+  dialogHeaderTitle: {
     fontSize: 24,
-    marginBottom: 8,
     lineHeight: 28,
     textAlign: "center",
+    fontWeight: "bold",
+    color: "white"
   },
-  buttonPopup: {
-    marginTop: 10
+  formGroup: {
+    marginTop: 10,
+  },
+  dialogFooterButton: {
+    borderRadius: 20,
+    color: "white",
+    borderColor: "#fff",
+  },
+  dialogButtonfonts: {
+    color: "#fff",
+    fontSize: 14,
   }
 });
 

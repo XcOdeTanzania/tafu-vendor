@@ -151,6 +151,7 @@ class AccountScreen extends Component<Props, AccountScreenState> {
 
           }}
           width={0.8}
+<<<<<<< HEAD
          
         >
           <DialogContent >
@@ -179,6 +180,42 @@ class AccountScreen extends Component<Props, AccountScreenState> {
                   
                   ></Button>
                 </View>
+=======
+          // height={0.5}
+          dialogStyle={{ backgroundColor: "#f58634" }}
+        >
+          <DialogContent>
+            <View>
+              <View style={styles.dialogHeader}>
+                <Text style={styles.dialogHeaderTitle}>{this.state.popupTitle}</Text>
+              </View>
+              <View style={styles.formGroup}>
+                <TextInput
+                  placeholderTextColor="white"
+                  placeholder='Location'
+                  autoFocus={true}
+                  style={styles.textInputPopup}
+                ></TextInput>
+              </View>
+              <View style={styles.formGroup}>
+                <TextInput
+                  placeholderTextColor="white"
+                  placeholder='Phone Number'
+                  autoFocus={true}
+                  style={styles.textInputPopup}
+                ></TextInput>
+              </View>
+              <View>
+                <Button onPress={() => {
+                  console.log('submit')
+                }}
+                  title="Add"
+                  type="outline"
+                  titleStyle={styles.dialogButtonfonts}
+                  buttonStyle={[styles.dialogFooterButton, styles.formGroup]}
+
+                ></Button>
+>>>>>>> 482166e5339063bc1ee59ea8959b5a9cbf749fd8
               </View>
             </View>
           </DialogContent>
