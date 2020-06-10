@@ -153,7 +153,7 @@ class AccountScreen extends Component<Props, AccountScreenState> {
           width={0.8}
           // height={0.5}
           dialogStyle={{ backgroundColor: "#f58634" }}
-        >
+          >
           <DialogContent>
             <View>
               <View style={styles.dialogHeader}>

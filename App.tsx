@@ -24,7 +24,7 @@ import AccountScreen from "screens/Account";
 import DirectPayScreen from "screens/DirectPay";
 import DispatchAwaitingScreen from "screens/DispatchAwaiting";
 import DispatchReceiptScreen from "screens/DispatchReceipt";
-
+import PaymentScreen from "screens/Payment";
 
 import { Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/Entypo";
@@ -165,6 +165,12 @@ export default class App extends Component<Props> {
           <Stack.Screen name="MyAccount" component={AccountScreen}
             options={{
               title: 'My Account',
+            }}
+          />
+
+          <Stack.Screen name="Payment" component={PaymentScreen}
+            options={{
+              title: 'Payment',
             }}
           />
         </Stack.Navigator>

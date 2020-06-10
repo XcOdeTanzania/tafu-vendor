@@ -46,16 +46,16 @@ const styles = StyleSheet.create({
     paddingRight: 10,
 
   },
+
   button: {
     borderColor: "#f58634",
     borderRadius: 10,
-    padding: 0,
-    paddingLeft: 10,
-    paddingRight: 10,
-    lineHeight: 14,
-
-
-  },
+    paddingLeft: 25,
+    paddingRight: 25,
+    paddingBottom: 5,
+    paddingTop: 5,
+  
+},
   card: {
     borderColor: "#f58634",
     borderRadius: 10,
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   },
   fonts: {
     color: "#f58634",
-    fontSize: 14,
+    fontSize: 20,
   }
 });
 

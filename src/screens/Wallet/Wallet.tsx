@@ -57,12 +57,10 @@ class WalletScreen extends Component<Props, WalletScreenState> {
       <SafeAreaView style={styles.container}>
         <View >
           <View style={styles.rowHeader}>
-           
-            
+
+            <Text style={styles.header}>Wallet</Text>
           </View>
-          <
-            
-            Divider></Divider>
+          <Divider></Divider>
           <ButtonGroup
             onPress={this.updateIndex}
             selectedIndex={selectedIndex}
@@ -80,17 +78,40 @@ class WalletScreen extends Component<Props, WalletScreenState> {
             onChangeText={text => this.searchFilterFunction(text)}
             autoCorrect={false}
           />
+          <View style={styles.containerRow}>
+
+            <View style={[styles.column, styles.secondaryColorBackground, styles.container2]}>
+              <Text style={styles.fontsSmall}>
+                Total Volume
+   </Text>
+              <View style={{ padding: 10 }}></View>
+              <Text style={styles.fontsLarge} >
+                5
+   </Text>
+            </View>
+            <View style={[styles.column, styles.tertiaryColorBackground, styles.container2]}>
+              <Text style={styles.fontsSmall}>
+                Total Value
+   </Text>
+              <View style={{ padding: 10 }}></View>
+              <Text style={styles.fontsLarge}>
+                TZS 9,000,000
+   </Text>
+            </View>
+
+          </View>
           <View style={{ padding: 10 }}></View>
-            <View style={styles.rowHeader}>
+          <View style={styles.rowHeader}>
             <Text style={styles.header}>
-              
+
             </Text>
+
             <Button
               buttonStyle={styles.button}
-           
+
               onPress={() => {
-                console.log('hello');
-                navigation.navigate('DispatchAwaiting', { item: 'product' })
+               
+                navigation.navigate('Payment', { item: 'Withdraw' })
               }}
 
               title="  Withdraw  "
@@ -98,15 +119,18 @@ class WalletScreen extends Component<Props, WalletScreenState> {
             />
 
           </View>
+
           <FlatList
 
             data={selectedIndex == 0 ? this.listSuccessfulData : this.listReturnedData}
             renderItem={({ item }) => (
-              <TouchableOpacity
-                onPress={() => navigation.navigate('ProductDetail', { item: 'character' })
-                }>
-                <WalletItem ></WalletItem>
-              </TouchableOpacity>
+
+              <WalletItem ></WalletItem>
+              // <TouchableOpacity
+              //   onPress={() => navigation.navigate('ProductDetail', { item: 'character' })
+              //   }>
+                
+              // </TouchableOpacity>
 
             )}
 
