@@ -45,7 +45,6 @@ const styles = StyleSheet.create({
     fontStyle: "normal",
     fontWeight: "bold",
     fontSize: 20,
-    paddingTop:2
   },
   divider: {
     paddingLeft: 10,
@@ -102,13 +101,48 @@ const styles = StyleSheet.create({
   },
   rowBranch: {
     flexDirection: "row",
-    paddingLeft:10,
-    paddingRight:10,
+  
     paddingBottom:5,
     justifyContent: 'flex-start',
    
 
   },
+
+
+  colPopup: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column"
+  },
+  containerPopup: {
+    width: "75%",
+    justifyContent: "center",
+    textAlign: "center",
+    padding: 30,
+    borderRadius: 10,
+    borderWidth: 1
+  },
+  textInputPopup: {
+    borderWidth: 1,
+    borderColor: "gray",
+    borderRadius: 5,
+    marginBottom: 8,
+    padding: 10,
+    width: "100%"
+  },
+  headerPopup: {
+    // fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: 24,
+    marginBottom: 8,
+    lineHeight: 28,
+    textAlign: "center",
+  },
+  buttonPopup: {
+    marginTop: 10
+  }
 });
 
 export default styles;

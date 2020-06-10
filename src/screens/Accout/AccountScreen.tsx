@@ -3,8 +3,9 @@ import styles from "./styles";
 import React, { Component } from "react";
 import { Text, View, Switch } from "react-native";
 import { Divider, Avatar, Button } from "react-native-elements";
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import { TouchableOpacity } from "react-native-gesture-handler";
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import { TouchableOpacity, TextInput } from "react-native-gesture-handler";
+import Dialog, { DialogContent } from "react-native-popup-dialog";
 
 
 
@@ -14,12 +15,19 @@ interface Props {
 
 type AccountScreenState =
   {
-    selectedIndex: number,
-    data: any
+
+
+    visiblePopup: boolean,
+    popupTitle: string
   }
 class AccountScreen extends Component<Props, AccountScreenState> {
   constructor(props: Props) {
     super(props);
+
+    this.state = {
+      visiblePopup: false,
+      popupTitle: ''
+    }
 
   }
   render() {
@@ -30,6 +38,17 @@ class AccountScreen extends Component<Props, AccountScreenState> {
           <View style={styles.body}>
             <Text style={styles.title}>Laptop City</Text>
             <Text style={styles.subtitle}>Kinondoni Morocco</Text>
+            <Button
+              buttonStyle={styles.buttonAdd}
+              title="Edit"
+              onPress={() => {
+                this.setState({
+                  visiblePopup: true,
+                  popupTitle: 'Edit Branch'
+                });
+              }}
+            />
+
           </View>
           <View>
 
@@ -84,21 +103,88 @@ class AccountScreen extends Component<Props, AccountScreenState> {
           <Button
             buttonStyle={styles.buttonAdd}
             title="Add"
+            onPress={() => {
+              this.setState({
+                visiblePopup: true,
+                popupTitle: 'Add New Branch'
+              });
+            }}
           />
         </View>
-        <View style={styles.rowBranch}>
-          <Ionicons name='ios-add' size={30} color='#f58634'></Ionicons>
-          <View style={{ paddingLeft: 10 }}></View>
-          <Text style={styles.itemTextBranch} >Kinondoni</Text>
+
+        <View style={styles.row}>
+          <View style={styles.rowBranch}>
+            <Icon name='code-branch' size={25} color='#f58634'></Icon>
+            <View style={{ paddingLeft: 10 }}></View>
+            <Text style={styles.itemTextBranch} >Kinondoni</Text>
+          </View>
+          <Button
+            buttonStyle={styles.buttonAdd}
+            title="Switch Branch"
+          />
         </View>
-        <View style={styles.rowBranch}>
-          <Ionicons name='ios-add' size={30} color='#f58634'></Ionicons>
-          <View style={{ paddingLeft: 10 }}></View>
-          <Text style={styles.itemTextBranch} >Kinondoni</Text>
+
+        <View style={styles.row}>
+          <View style={styles.rowBranch}>
+            <Icon name='code-branch' size={25} color='#f58634'></Icon>
+            <View style={{ paddingLeft: 10 }}></View>
+            <Text style={styles.itemTextBranch} >Posta</Text>
+          </View>
+          <Button
+            buttonStyle={styles.buttonAdd}
+            title="Switch Branch"
+          />
         </View>
+
+
+
+
         <View style={styles.divider}>
           <Divider ></Divider>
         </View>
+
+
+
+        <Dialog visible={this.state.visiblePopup}
+          onTouchOutside={() => {
+            this.setState({ visiblePopup: false });
+
+          }}
+          width={0.5}
+          height={0.5}
+        >
+          <DialogContent >
+            <View style={styles.colPopup}>
+              <View style={styles.containerPopup}>
+                <Text style={styles.headerPopup}>Add New Branch</Text>
+                <View>
+                  <TextInput
+                    placeholder='Location'
+                    autoFocus={true}
+                    style={styles.textInputPopup}
+                  ></TextInput>
+                </View>
+                <View>
+                  <TextInput
+                    placeholder='Phone Number'
+                    autoFocus={true}
+                    style={styles.textInputPopup}
+                  ></TextInput>
+                </View>
+                <View>
+                  <Button onPress={() => {
+                    console.log('submit')
+                  }}
+                    title="Add"
+                    style={styles.buttonPopup}
+                  ></Button>
+                </View>
+              </View>
+            </View>
+          </DialogContent>
+
+        </Dialog>
+
 
       </View>
     );
