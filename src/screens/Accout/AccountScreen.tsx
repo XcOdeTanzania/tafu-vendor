@@ -3,7 +3,6 @@ import styles from "./styles";
 import React, { Component } from "react";
 import { Text, View, Switch } from "react-native";
 import { Divider, Avatar, Button } from "react-native-elements";
-import ProfileItem from "components/items/profile/Profiletem";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { TouchableOpacity } from "react-native-gesture-handler";
 
@@ -13,12 +12,12 @@ interface Props {
   navigation: any,
 }
 
-type AccountTabState =
+type AccountScreenState =
   {
     selectedIndex: number,
     data: any
   }
-class AccountTab extends Component<Props, AccountTabState> {
+class AccountScreen extends Component<Props, AccountScreenState> {
   constructor(props: Props) {
     super(props);
 
@@ -35,7 +34,7 @@ class AccountTab extends Component<Props, AccountTabState> {
           <View>
 
             <TouchableOpacity
-              onPress={() => navigation.navigate('MyAccount', { item: 'character' })
+              onPress={() => console.log('yrsss')
               }>
               <Avatar
                 size="large"
@@ -55,34 +54,50 @@ class AccountTab extends Component<Props, AccountTabState> {
         <Divider></Divider>
         <View style={{ padding: 20 }}></View>
 
-        <View style={styles.row}>
-          <Text style={styles.itemText} >Wallet</Text>
-          <Ionicons name='ios-add' size={40} color='#C4C4C4'></Ionicons>
+        <View style={styles.column}>
+          <Text style={styles.itemText} >Physical Address</Text>
+          <Text style={styles.subtitle}>Kinondoni Morocco, Dar Es Salaam</Text>
         </View>
         <View style={styles.divider}>
           <Divider ></Divider>
         </View>
 
-        <View style={styles.row}>
-          <Text style={styles.itemText} >Change Password</Text>
-          <Ionicons name='ios-add' size={40} color='#C4C4C4'></Ionicons>
+        <View style={styles.column}>
+          <Text style={styles.itemText} >Phone Number</Text>
+          <Text style={styles.subtitle}>+25 22 234 232</Text>
+          <Text style={styles.subtitle}>+25 22 234 232</Text>
         </View>
         <View style={styles.divider}>
           <Divider ></Divider>
         </View>
 
 
-        <View style={styles.row}>
-          <Text style={styles.itemText} >Notifications</Text>
-          <Switch></Switch>
+        <View style={styles.column}>
+          <Text style={styles.itemText} >Email</Text>
+          <Text style={styles.subtitle}>info@laptopcity.co.tz</Text>
         </View>
         <View style={styles.divider}>
           <Divider ></Divider>
         </View>
-
         <View style={styles.row}>
-          <Text style={styles.itemText} >Logout</Text>
-          <Switch></Switch>
+          <Text style={styles.itemText} >Branch</Text>
+          <Button
+            buttonStyle={styles.buttonAdd}
+            title="Add"
+          />
+        </View>
+        <View style={styles.rowBranch}>
+          <Ionicons name='ios-add' size={30} color='#f58634'></Ionicons>
+          <View style={{ paddingLeft: 10 }}></View>
+          <Text style={styles.itemTextBranch} >Kinondoni</Text>
+        </View>
+        <View style={styles.rowBranch}>
+          <Ionicons name='ios-add' size={30} color='#f58634'></Ionicons>
+          <View style={{ paddingLeft: 10 }}></View>
+          <Text style={styles.itemTextBranch} >Kinondoni</Text>
+        </View>
+        <View style={styles.divider}>
+          <Divider ></Divider>
         </View>
 
       </View>
@@ -90,4 +105,4 @@ class AccountTab extends Component<Props, AccountTabState> {
   }
 }
 
-export default AccountTab;
+export default AccountScreen;

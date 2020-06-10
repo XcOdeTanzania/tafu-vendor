@@ -19,11 +19,15 @@ import DispatchDetailScreen from "screens/DispatchDetail";
 import DispatchAwaiting from "screens/DispatchAwaiting";
 
 import WalletScreen from "screens/Wallet";
+import AccountScreen from "screens/Accout";
+
 import DirectPayScreen from "screens/DirectPay";
 import DispatchAwaitingScreen from "screens/DispatchAwaiting";
 import DispatchReceiptScreen from "screens/DispatchReceipt";
 import { Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/Entypo";
+
+
 
 
 
@@ -95,14 +99,30 @@ export default class App extends Component<Props> {
     const dispatchStackScreen = () => {
       return (
         <Stack.Navigator>
-          <Stack.Screen name="DispatchTab" component={DispatchTab} />
-          <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
-          <Stack.Screen name="DispatchAwaiting" component={DispatchAwaitingScreen} />
-          <Stack.Screen name="DispatchList" component={DispatchListScreen} />
-          <Stack.Screen name="DispatchDetail" component={DispatchDetailScreen} />
+          <Stack.Screen name="DispatchTab" component={DispatchTab}
+            options={{
+              title: 'Dispatch',
+            }} />
+          <Stack.Screen name="ProductDetail" component={ProductDetailScreen}
+            options={{
+              title: 'Product',
+            }} />
+          <Stack.Screen name="DispatchAwaiting" component={DispatchAwaitingScreen}
+            options={{
+              title: 'Awaiting',
+            }} />
+          <Stack.Screen name="DispatchList" component={DispatchListScreen}
+            options={{
+              title: 'Dispatches',
+            }} />
+          <Stack.Screen name="DispatchDetail" component={DispatchDetailScreen}
+            options={{
+              title: 'Details',
+            }}
+          />
           <Stack.Screen name="DispatchReceipt" component={DispatchReceiptScreen}
             options={{
-
+              title: 'Receipt',
               headerRight: () => (
                 <Button
                   type="clear"
@@ -110,7 +130,7 @@ export default class App extends Component<Props> {
                   icon={
                     <Icon
                       name="share-alternative"
-                      size={15}
+                      size={25}
                       color="#f58634"
                     />
                   }
@@ -127,9 +147,24 @@ export default class App extends Component<Props> {
     const accountStackScreen = () => {
       return (
         <Stack.Navigator>
-          <Stack.Screen name="Account" component={AccountTab} />
-          <Stack.Screen name="Wallet" component={WalletScreen} />
-          <Stack.Screen name="DirectPay" component={DirectPayScreen} />
+          <Stack.Screen name="Account" component={AccountTab}
+            options={{
+              title: 'Account',
+            }}
+          />
+          <Stack.Screen name="Wallet" component={WalletScreen}
+            options={{
+              title: 'Wallet',
+            }} />
+          <Stack.Screen name="DirectPay" component={DirectPayScreen}
+            options={{
+              title: 'Direct Pay',
+            }} />
+          <Stack.Screen name="MyAccount" component={AccountScreen}
+            options={{
+              title: 'My Account',
+            }}
+          />
         </Stack.Navigator>
       );
     }

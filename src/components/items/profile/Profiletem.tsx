@@ -42,19 +42,7 @@ export class ProfileItem extends Component<Props, ProfileItemState> {
                                 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
                         }}
                     />
-                </View>
-
-                <Dialog visible={this.state.visible}
-                    onTouchOutside={() => {
-                        this.setState({ visible: false })
-                    }}
-                >
-                    <DialogContent>
-                        <Text>Hello</Text>
-                    </DialogContent>
-
-                </Dialog>
-
+                </View>   
             </View>
         );
     }

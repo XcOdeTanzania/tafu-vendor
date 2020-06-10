@@ -26,11 +26,26 @@ const styles = StyleSheet.create({
     marginTop: 10
 
   },
+  column: {
+    flexDirection: "column",
+    padding: 10,
+    justifyContent: "space-between",
+    marginTop: 10,
+
+
+  },
   itemText: {
     color: "#f58634",
     fontStyle: "normal",
     fontWeight: "bold",
     fontSize: 20,
+  },
+  itemTextBranch: {
+    color: "#f58634",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: 20,
+    paddingTop:2
   },
   divider: {
     paddingLeft: 10,
@@ -75,7 +90,25 @@ const styles = StyleSheet.create({
   },
   fonts: {
     fontSize: 14,
-  }
+  },
+  buttonAdd: {
+    backgroundColor: "#f58634",
+    borderRadius: 15,
+    paddingLeft: 25,
+    paddingRight: 25,
+    paddingBottom: 5,
+    paddingTop: 5,
+    lineHeight: 14
+  },
+  rowBranch: {
+    flexDirection: "row",
+    paddingLeft:10,
+    paddingRight:10,
+    paddingBottom:5,
+    justifyContent: 'flex-start',
+   
+
+  },
 });
 
 export default styles;
