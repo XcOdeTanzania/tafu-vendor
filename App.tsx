@@ -29,11 +29,11 @@ import PaymentScreen from "screens/Payment";
 import { Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/Entypo";
 
+import { AuthContext } from 'utils/authContext';
+import { AsyncStorage, View, Text } from 'react-native';
 
-import { AsyncStorage } from 'react-native';
 
 
-const AuthContext = React.createContext('signout');
 
 
 
@@ -79,7 +79,7 @@ export default class App extends Component<Props> {
 
   };
 
-
+  static auth = AuthContext;
 
 
   render() {
@@ -184,64 +184,71 @@ export default class App extends Component<Props> {
       // We haven't finished checking for the token yet
       return <SplashScreen />;
     }
+    return <AuthContext.Consumer >
+      {prop => {
+        return prop.userToken == null ? <NavigationContainer theme={MyThemeAuth}>
 
+          <Stack.Navigator
+            headerMode={"none"}
+          >
+            <Stack.Screen name='Login' component={LoginScreen}
+              options={{
+                title: 'Sign in',
+                animationTypeForReplace: state.isSignout ? 'pop' : 'push',
 
-    return state.userToken == null ? <NavigationContainer theme={MyThemeAuth}>
-      <Stack.Navigator
-        headerMode={"none"}
-      >
-        <Stack.Screen name='Login' component={LoginScreen}
-          options={{
-            title: 'Sign in',
-            animationTypeForReplace: state.isSignout ? 'pop' : 'push',
+              }}
+            ></Stack.Screen>
+            <Stack.Screen name='Rest' component={PasswordResetScreen}></Stack.Screen>
+          </Stack.Navigator>
 
-          }}
-        ></Stack.Screen>
-        <Stack.Screen name='Rest' component={PasswordResetScreen}></Stack.Screen>
-      </Stack.Navigator>
-    </NavigationContainer> : <NavigationContainer
-      theme={MyTheme}>
+        </NavigationContainer> : <NavigationContainer
+          theme={MyTheme}>
 
-        <Tabs.Navigator
-          screenOptions={({ route }) => ({
-            tabBarIcon: ({ focused, color, size }) => {
-              let iconName: string;
+            <Tabs.Navigator
+              screenOptions={({ route }) => ({
+                tabBarIcon: ({ focused, color, size }) => {
+                  let iconName: string;
 
-              if (route.name === 'Orders') {
-                iconName = focused
-                  ? 'ios-apps'
-                  : 'ios-apps';
-              } else if (route.name === 'Dispatch') {
-                iconName = focused ? 'ios-list-box' : 'ios-list';
-              }
-              else if (route.name === 'Notifications') {
-                iconName = focused ? 'ios-bookmarks' : 'ios-bookmarks';
-              }
-              else if (route.name === 'Account') {
-                iconName = focused ? 'ios-person' : 'ios-person';
-              } else {
-                iconName = focused ? 'ios-list-box' : 'ios-list';
-              }
+                  if (route.name === 'Orders') {
+                    iconName = focused
+                      ? 'ios-apps'
+                      : 'ios-apps';
+                  } else if (route.name === 'Dispatch') {
+                    iconName = focused ? 'ios-list-box' : 'ios-list';
+                  }
+                  else if (route.name === 'Notifications') {
+                    iconName = focused ? 'ios-bookmarks' : 'ios-bookmarks';
+                  }
+                  else if (route.name === 'Account') {
+                    iconName = focused ? 'ios-person' : 'ios-person';
+                  } else {
+                    iconName = focused ? 'ios-list-box' : 'ios-list';
+                  }
 
-              // You can return any component that you like here!
-              return <Ionicons name={iconName} size={size} color={color} />;
-            },
-          })}
-          tabBarOptions={{
-            activeTintColor: 'tomato',
-            inactiveTintColor: 'gray',
-          }}
-        >
-          <Tabs.Screen name='Orders' component={orderStackScreen}
-            options={{
-              title: 'Orders',
-            }}
-          ></Tabs.Screen>
-          <Tabs.Screen name='Dispatch' component={dispatchStackScreen}></Tabs.Screen>
-          <Tabs.Screen name='Notifications' component={NotificationsTab}></Tabs.Screen>
-          <Tabs.Screen name='Account' component={accountStackScreen}></Tabs.Screen>
-        </Tabs.Navigator>
-      </NavigationContainer>;
+                  // You can return any component that you like here!
+                  return <Ionicons name={iconName} size={size} color={color} />;
+                },
+              })}
+              tabBarOptions={{
+                activeTintColor: 'tomato',
+                inactiveTintColor: 'gray',
+              }}
+            >
+              <Tabs.Screen name='Orders' component={orderStackScreen}
+                options={{
+                  title: 'Orders',
+                }}
+              ></Tabs.Screen>
+              <Tabs.Screen name='Dispatch' component={dispatchStackScreen}></Tabs.Screen>
+              <Tabs.Screen name='Notifications' component={NotificationsTab}></Tabs.Screen>
+              <Tabs.Screen name='Account' component={accountStackScreen}></Tabs.Screen>
+            </Tabs.Navigator>
+          </NavigationContainer>
+      }}
+    </AuthContext.Consumer>;
+
   }
 }
+
+
 

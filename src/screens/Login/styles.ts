@@ -33,19 +33,14 @@ const styles = StyleSheet.create({
     fontSize: 30
   },
   button: {
-    backgroundColor: "white",
-    borderRadius: 10,
-    paddingLeft: 25,
-    paddingRight: 25,
-    paddingBottom: 5,
-    paddingTop: 5,
-    borderColor: 'white',
-    width: 200,
-    height: 44,
+    backgroundColor: "#f58634",
+    margin: 10, 
+    marginTop: 50
+
   },
   fonts: {
     fontSize: 20,
-    color: "#f58634"
+    color: "white"
   },
   label: {
     color: "white"
