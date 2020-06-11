@@ -15,8 +15,6 @@ interface Props {
 
 type AccountScreenState =
   {
-
-
     visiblePopup: boolean,
     popupTitle: string
   }

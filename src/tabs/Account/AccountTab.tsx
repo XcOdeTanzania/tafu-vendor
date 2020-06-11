@@ -1,14 +1,15 @@
 // import strings from "./strings";
 import styles from "./styles";
 import React, { Component } from "react";
-import { Text, View, Switch } from "react-native";
+import { AsyncStorage, Text, View, Switch } from "react-native";
 import { Divider, Avatar, Button } from "react-native-elements";
-import ProfileItem from "components/items/profile/Profiletem";
+
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 
 
+const AuthContext = React.createContext('signOut');
 interface Props {
   navigation: any,
 }
@@ -18,11 +19,15 @@ type AccountTabState =
     selectedIndex: number,
     data: any
   }
+
+  // const { signOut } = React.useContext(AuthContext);
 class AccountTab extends Component<Props, AccountTabState> {
   constructor(props: Props) {
     super(props);
 
   }
+ 
+
   render() {
     const { navigation } = this.props;
     return (
@@ -88,11 +93,14 @@ class AccountTab extends Component<Props, AccountTabState> {
         <View style={styles.divider}>
           <Divider ></Divider>
         </View>
+        <TouchableOpacity
+          onPress={()=>{}}>
+          <View style={styles.row}>
+            <Text style={styles.itemText} >Logout</Text>
+            <Switch></Switch>
+          </View>
+        </TouchableOpacity>
 
-        <View style={styles.row}>
-          <Text style={styles.itemText} >Logout</Text>
-          <Switch></Switch>
-        </View>
 
       </View>
     );

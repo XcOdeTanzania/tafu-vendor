@@ -30,7 +30,10 @@ import { Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/Entypo";
 
 
+import { AsyncStorage } from 'react-native';
 
+
+const AuthContext = React.createContext('signout');
 
 
 
@@ -53,8 +56,6 @@ const MyThemeAuth = {
   },
 };
 
-
-
 interface State {
   error: string;
   isLoading: boolean;
@@ -65,7 +66,7 @@ interface State {
 const state: State = {
   error: '',
   isLoading: false,
-  userToken: "null",
+  userToken: null,
   isSignout: true,
 }
   ;
@@ -186,11 +187,14 @@ export default class App extends Component<Props> {
 
 
     return state.userToken == null ? <NavigationContainer theme={MyThemeAuth}>
-      <Stack.Navigator >
+      <Stack.Navigator
+        headerMode={"none"}
+      >
         <Stack.Screen name='Login' component={LoginScreen}
           options={{
             title: 'Sign in',
             animationTypeForReplace: state.isSignout ? 'pop' : 'push',
+
           }}
         ></Stack.Screen>
         <Stack.Screen name='Rest' component={PasswordResetScreen}></Stack.Screen>

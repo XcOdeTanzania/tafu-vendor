@@ -37,18 +37,19 @@ const styles = StyleSheet.create({
         fontSize: 15,
         lineHeight: 18,
     },
+
+ 
     button: {
      
         borderColor:"#f58634",
         borderRadius: 10,
-        paddingLeft:10,
-        paddingRight:10,
-        paddingBottom:0,
-        paddingTop:0,
-        lineHeight: 14
+        paddingLeft: 25,
+        paddingRight: 25,
+        paddingBottom: 5,
+        paddingTop: 5,
     },
     fonts: {
-        fontSize: 14,
+        fontSize: 18,
         color: "#f58634",
     }
    
