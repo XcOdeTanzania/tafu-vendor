@@ -14,7 +14,7 @@
     "@react-navigation/native": "^5.5.1",
     "@react-navigation/stack": "^5.4.2",
     "@types/react-native-popup-dialog": "^0.16.2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "expo": "~37.0.3",
     "indicative": "^7.4.4",
     "react": "~16.9.0",
